@@ -14,6 +14,7 @@ public class Helpers
         return new Random().Next(2) == 0;
     }
 }
+
 public class Program
 {
     private void DisplayHeader()
@@ -22,7 +23,6 @@ public class Program
         int padding = (Console.WindowWidth + header.Length) / 2;
 
         header = header.PadLeft(padding);
-
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine(header);
     }
@@ -30,38 +30,33 @@ public class Program
     {
         new Program().start();
     }
-
     private void start()
     {
         DisplayHeader();
-        var grades = GetMockgrades();
-        var students = grades
-          .Select(grade => grade.Student)
-          .Distinct()
-          .ToList();
-
-        string message = "";
-        string name = "";
-
-        foreach (var student in students)
-        {
-            name = student.DisplayFullName ? student.FullName : student.ProperName;
-            message = $"Student: {name}\n";
-
-            var studentGrades = grades
-                .Where(grade => grade.Student == student)
-                .ToList();
-            
-            foreach (var grade in studentGrades)
-            {
-                var padding = new String(' ', grade.MaxSubjectLength - grade.Subject.ToString().Length);
-                message += $"\tSubject: {grade.Subject}{padding} - Grade {grade.FormattedGrade}\n";
-            }
-
-            DisplayMessage(message);
-        }
+        DisplayStudentGrades();
         Console.Write("\n\n\nPress any key to close...");
         Console.ReadKey();
+    }
+    public void DisplayStudentGrades()
+    {
+        BaseStudentGrades baseStudentGrades = new BaseStudentGrades();
+        foreach (var student in baseStudentGrades.GetListStudents())
+        {
+            var name = student.DisplayFullName ? student.FullName : student.ProperName;
+            DisplayMessage($"Student: {name}\n");
+            StudentGrades(baseStudentGrades.GetStudentGrades(student));
+        }
+    }
+
+    private void StudentGrades(List<Grade> studentGrades)
+    {
+        string message = "";
+        foreach (var grade in studentGrades)
+        {
+            var padding = new String(' ', grade.MaxSubjectLength - grade.Subject.ToString().Length);
+            message += $"\tSubject: {grade.Subject}{padding} - Grade {grade.FormattedGrade}\n";
+        }
+        DisplayMessage(message);
     }
 
     private static void DisplayMessage(string message)
@@ -71,31 +66,13 @@ public class Program
     }
 
     #region Mocks
-    private static Grade[] GetMockgrades()
-    {
-        var helper = new Helpers();
 
-        return new List<Student>() {
-            new Student("Cleo", "Strong", displayFullName: helper.Random()),
-            new Student("Olivia", "Allen", displayFullName: helper.Random()),
-            new Student("Fred", "Cisneros", displayFullName: helper.Random()),
-            new Student("Julia", "Pacheco", displayFullName: helper.Random()),
-            new Student("Gene", "Dixon", displayFullName: helper.Random())
-        }
-        .Select(student =>
-        {
-            return Enum.GetValues(typeof(Subject))
-                .Cast<Subject>()
-                .Select(subject => new Grade(
-                  student,
-                  subject,
-                  value: new Random().Next(5, 11),
-                  displayLetterGrade: helper.Random())
-                )
-                .ToArray();
-        })
-        .SelectMany(x => x)
-        .ToArray();
+    private List<Student> GetMockStudents(Grade[] grades)
+    {
+        return grades
+            .Select(grade => grade.Student)
+            .Distinct()
+            .ToList();
     }
     #endregion
 }
@@ -184,6 +161,60 @@ public class Grade
         {
             return DisplayLetterGrade ? LetterValue : Value.ToString();
         }
+    }
+}
+public class BaseStudentGrades
+{
+    private Grade[] Grades;
+    public BaseStudentGrades()
+    {
+        this.Grades = GetMockgrades();
+    }
+
+    public Grade[] GetListGrades()
+    {
+        return this.Grades;
+    }
+
+    public List<Student> GetListStudents()
+    {
+        return this.Grades
+            .Select(grade => grade.Student)
+            .Distinct()
+            .ToList();
+    }
+
+    public List<Grade> GetStudentGrades (Student student) {
+        return this.Grades
+            .Where(grade => grade.Student == student)
+            .ToList();
+    }
+
+    private static Grade[] GetMockgrades()
+    {
+        var helper = new Helpers();
+
+        return new List<Student>() {
+            new Student("Cleo", "Strong", displayFullName: helper.Random()),
+            new Student("Olivia", "Allen", displayFullName: helper.Random()),
+            new Student("Fred", "Cisneros", displayFullName: helper.Random()),
+            new Student("Julia", "Pacheco", displayFullName: helper.Random()),
+            new Student("Gene", "Dixon", displayFullName: helper.Random())
+        }
+        .Select(student =>
+        {
+            return Enum.GetValues(typeof(Subject))
+                .Cast<Subject>()
+                .Select(subject => new Grade(
+                  student,
+                  subject,
+                  value: new Random().Next(5, 11),
+                  displayLetterGrade: helper.Random())
+                )
+                .ToArray();
+        })
+        .SelectMany(x => x)
+        .ToArray();
     }
 }
 #endregion

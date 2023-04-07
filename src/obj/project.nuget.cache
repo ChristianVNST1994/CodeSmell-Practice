@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ia2b2tckDjrPv78evn/I70BghXimfWa6LFIBONyruMZzYCJyyVbwd34FxyKIj4T6Hs4zjEUmqYddb/6hfgnP2Q==",
+  "dgSpecHash": "uCkL6XzzCBXz/dYY9llyGDAaXPIHQgjNpAGUed8UA7Tp+wjAZ8v5C/yx1yPqAqW1jTzxhhFf0Kg0NQRWeTsEKw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Christian.bonilla\\downloads\\CoE Codingd\\CoE.CleanCode.FunctionCodeSmells\\CoE.CleanCode.FunctionCodeSmells\\src\\Program.csproj",
+  "projectFilePath": "C:\\Users\\Christian.bonilla\\Downloads\\CoE Codingd\\CoE.CleanCode.FunctionCodeSmells\\CoE.CleanCode.FunctionCodeSmells\\src\\Program.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Christian.bonilla\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.15\\microsoft.netcore.app.ref.6.0.15.nupkg.sha512",
     "C:\\Users\\Christian.bonilla\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.15\\microsoft.windowsdesktop.app.ref.6.0.15.nupkg.sha512",

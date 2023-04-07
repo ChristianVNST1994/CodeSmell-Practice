@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Christian.bonilla\\downloads\\CoE Codingd\\CoE.CleanCode.FunctionCodeSmells\\CoE.CleanCode.FunctionCodeSmells\\src\\Program.csproj": {}
+    "C:\\Users\\Christian.bonilla\\Downloads\\CoE Codingd\\CoE.CleanCode.FunctionCodeSmells\\CoE.CleanCode.FunctionCodeSmells\\src\\Program.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Christian.bonilla\\downloads\\CoE Codingd\\CoE.CleanCode.FunctionCodeSmells\\CoE.CleanCode.FunctionCodeSmells\\src\\Program.csproj": {
+    "C:\\Users\\Christian.bonilla\\Downloads\\CoE Codingd\\CoE.CleanCode.FunctionCodeSmells\\CoE.CleanCode.FunctionCodeSmells\\src\\Program.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Christian.bonilla\\downloads\\CoE Codingd\\CoE.CleanCode.FunctionCodeSmells\\CoE.CleanCode.FunctionCodeSmells\\src\\Program.csproj",
+        "projectUniqueName": "C:\\Users\\Christian.bonilla\\Downloads\\CoE Codingd\\CoE.CleanCode.FunctionCodeSmells\\CoE.CleanCode.FunctionCodeSmells\\src\\Program.csproj",
         "projectName": "Program",
-        "projectPath": "C:\\Users\\Christian.bonilla\\downloads\\CoE Codingd\\CoE.CleanCode.FunctionCodeSmells\\CoE.CleanCode.FunctionCodeSmells\\src\\Program.csproj",
+        "projectPath": "C:\\Users\\Christian.bonilla\\Downloads\\CoE Codingd\\CoE.CleanCode.FunctionCodeSmells\\CoE.CleanCode.FunctionCodeSmells\\src\\Program.csproj",
         "packagesPath": "C:\\Users\\Christian.bonilla\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Christian.bonilla\\downloads\\CoE Codingd\\CoE.CleanCode.FunctionCodeSmells\\CoE.CleanCode.FunctionCodeSmells\\src\\obj\\",
+        "outputPath": "C:\\Users\\Christian.bonilla\\Downloads\\CoE Codingd\\CoE.CleanCode.FunctionCodeSmells\\CoE.CleanCode.FunctionCodeSmells\\src\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Christian.bonilla\\AppData\\Roaming\\NuGet\\NuGet.Config"
